@@ -144,23 +144,123 @@ target = 6
 # print(f(arr, target))
 
 
-def f(arr, target, start, end):
-    if start > end: return -1
+# def f(arr, target, start, end):
+#     if start > end: return -1
 
-    mid = start + (end - start) // 2
-    if arr[mid] == target: return mid
+#     mid = start + (end - start) // 2
+#     if arr[mid] == target: return mid
 
-    if arr[start] < arr[mid]:
-        if arr[start] < target <= arr[mid]:
-            return f(arr, target, start, mid - 1)
-        else:
-            return f(arr, target, mid + 1, end)
-    else:
-        if arr[mid] < target <= arr[end]:
-            return f(arr, target, mid + 1, end)
-        else:
-            return f(arr, target, start, mid - 1)
+#     if arr[start] < arr[mid]:
+#         if arr[start] < target <= arr[mid]:
+#             return f(arr, target, start, mid - 1)
+#         else:
+#             return f(arr, target, mid + 1, end)
+#     else:
+#         if arr[mid] < target <= arr[end]:
+#             return f(arr, target, mid + 1, end)
+#         else:
+#             return f(arr, target, start, mid - 1)
 
-arr = [5, 6, 7, 8, 1, 2]
-target = -1
-print(f(arr, target, 0, len(arr) - 1))
+# arr = [5, 6, 7, 8, 1, 2]
+# target = -1
+# print(f(arr, target, 0, len(arr) - 1))
+
+""""
+Bubble sort
+"""
+
+
+# def bubble(arr, N, idx):
+#     if N == 0: return
+
+#     if idx < N:
+#         if arr[idx] > arr[idx + 1]:
+#             arr[idx], arr[idx + 1] = arr[idx + 1], arr[idx]
+#         bubble(arr, N, idx + 1)
+#     else:
+#         bubble(arr, N - 1, 0)
+
+# arr = [3, 2, 1, 9]
+# bubble(arr, 2, 0)
+# print(arr)
+
+
+"""
+Selection sort
+"""
+
+# def f(arr, N):
+#     idx = 0
+#     while N:
+#         maxE = float('-inf')
+#         for i in range(N):
+#             if arr[i] > maxE:
+#                 maxE = arr[i]
+#                 idx = i
+#         arr[idx], arr[N-1] = arr[N-1], arr[idx]
+#         N -= 1
+
+# arr = [3, 1, 5, 4, 2, 0]
+# f(arr, 6)
+# print(arr)
+
+# def f(arr, N, idx, max):
+#     if N == 0: return
+
+#     if idx < N:
+#         if arr[idx] > arr[max]:
+#             f(arr, N, idx + 1, idx)
+#         else:
+#             f(arr, N, idx + 1, max)
+#     else:
+#         arr[N-1], arr[max] = arr[max], arr[N-1]
+#         f(arr, N - 1, 0, 0)
+
+
+# arr = [3, 1, 5, 4, 2, 0]
+# f(arr, 6, 0, -1)
+# print(arr)
+
+
+"""
+Merge Sort
+"""
+
+# def mergesort(arr):
+#     if len(arr) == 1: return arr
+
+#     mid = len(arr) // 2
+
+#     left = mergesort(arr[:mid])
+#     right = mergesort(arr[mid:])
+
+#     return merge(left, right)
+
+# def merge(first, second):
+#     ans = []
+#     N = len(first)
+#     M = len(second)
+#     i = j = 0
+
+#     while i < N and j < M:
+#         if first[i] < second[j]:
+#             ans.append(first[i])
+#             i += 1
+#         else:
+#             ans.append(second[j])
+#             j += 1
+    
+#     if i == N:
+#         while j < M:
+#             ans.append(second[j])
+#             j += 1
+#     if j == M:
+#         while i < N:
+#             ans.append(first[i]) 
+#             i += 1
+#     return ans
+
+
+# print(merge([1, 4, 5], [0, 2, 6]))
+# print(mergesort([4, 2, 3, 6, 5, 1, 9, 2, 4]))
+
